@@ -1,0 +1,37 @@
+<div  *ngFor="let x of requests;" style="margin-top:50px">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Code</th>
+        <th scope="col">Page</th>
+        
+        <th scope="col">Year</th>
+        <th scope="col">Count</th>
+        <th scope="col">Description</th>
+        
+        <th scope="col">Date of the order</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">{{x.book.name}}</th>
+      <td>{{x.book.author}}</td>
+      <td>{{x.book.code}}</td>
+      <td>{{x.book.page}}</td>
+    
+      <td>{{x.book.year}}</td>
+      
+      <td>{{x.count}}</td>
+      
+      <td>{{x.book.description}}</td>
+      
+      <td>{{x.startdate}}</td>
+      <td>{{x.status}}</td>
+      
+    </tr>
+  </tbody>
+  </table>
+</div>

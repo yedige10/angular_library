@@ -1,0 +1,50 @@
+<div *ngFor="let x of books;" style="width:300px;">
+  <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+        (click)="getBook(x.id)">{{x.name}}
+        <span class="badge badge-primary badge-pill">{{x.count}}</span>
+        </li>
+  </ul>
+  
+</div>
+<div *ngIf="gbook" style="float:right;right:450px;width:550px;position: absolute;top:50px">
+  <table class="table">  
+      <tr>
+        <th>Name</th>
+        <td>{{book.name}}</td>
+      <tr>
+      <tr>
+        <th>Page</th>
+        <td>{{book.page}}</td>
+          
+      <tr>
+         
+      <tr>
+        <th>Author</th>
+        <td>{{book.author}}</td>
+      <tr>
+         
+      <tr>
+        <th>Code</th>
+        <td>{{book.code}}</td>
+      <tr>              
+      <tr>
+        <th>year</th>
+        <td>{{book.year}}</td>
+      </tr>
+      <tr>
+        <th>description</th>
+        <td>{{book.description}}</td>
+      </tr>  
+      <tr>
+        <th>count</th>
+        <td>{{book.count}}</td>
+      </tr>
+  </table>
+  
+  <div class="form-group" style="width:100px">
+    <input type="number" class="form-control"   name="bookcount" placeholder="count" [(ngModel)]="requests.count">
+</div>
+  <button type="submit" class="btn btn-primary" (click)="onCreateRequest()">Order</button>
+
+</div>
