@@ -1,42 +1,31 @@
-<div  *ngFor="let x of requests;" style="margin-top:50px">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Username</th>
-          <th scope="col">Full name</th>
-          
-          <th scope="col">Book Name</th>
-          <th scope="col">Author</th>
-          
-          <th scope="col">Count</th>
-          
-          <th scope="col">Date of the order</th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
-      <tbody>
+<div style="padding: 20px">
+  <table class="table">
+    <thead>
       <tr>
-          <th scope="row">{{x.user.username}}</th>
-          <td >{{x.user.firstname}} {{x.user.lastname}}</td>
-        
+        <th scope="col" style="width: 30%">Full name</th>
+        <th scope="col" style="width: 30%">Book Name</th>
+        <th scope="col" style="width: 10%">Author</th>
+        <th scope="col" style="width: 5%">Count</th>
+        <th scope="col" style="width: 10%">Date of the order</th>
+        <th scope="col" style="width: 10%">Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of requests;">
+        <td>{{x.user.firstname}} {{x.user.lastname}}</td>
         <td>{{x.book.name}}</td>
         <td>{{x.book.author}}</td>
-        
-        
         <td>{{x.count}}</td>
-        
-        
         <td>{{x.startdate}}</td>
-        <select class="form-control" id="status" name="status" [(ngModel)]="x.status">
-            <option value="approve">Not returned</option>
+        <td>
+          <select class="form-control" id="status" name="status" [(ngModel)]="x.status">
+            <option value="approve">Not Returned</option>
             <option value="returned">Returned</option>
-        </select>
-        
+          </select>
+        </td>
+        <td><button type="submit" class="btn btn-primary" (click)="onReturned(x.id,x)">Submit</button></td>
       </tr>
     </tbody>
-    </table>
-    <button type="submit"   class="btn btn-primary" style="float:right;margin-right: 50px;margin-bottom: 10px"
-    (click)="onReturned(x.id,x)"
-    >Submit</button>
-          
-  </div>
+  </table>
+</div>

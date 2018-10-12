@@ -1,37 +1,30 @@
-<div  *ngFor="let x of requests;" style="margin-top:50px">
+<div style="padding: 20px 20px 20px 20px">
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Book Name</th>
-        <th scope="col">Author</th>
-        <th scope="col">Code</th>
-        <th scope="col">Page</th>
-        
-        <th scope="col">Year</th>
-        <th scope="col">Count</th>
-        <th scope="col">Description</th>
-        
-        <th scope="col">Date of the order</th>
+        <th scope="col" style="width: 30%">Book Name</th>
+        <th scope="col" style="width: 10%">Author</th>
+        <th scope="col" style="width: 5%">Code</th>
+        <th scope="col" style="width: 5%">Page</th>
+        <th scope="col" style="width: 5%">Year</th>
+        <th scope="col" style="width: 5%">Count</th>
+        <th scope="col" style="width: 30%">Description</th>
+        <th scope="col" style="width: 5%">Date of the order</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">{{x.book.name}}</th>
-      <td>{{x.book.author}}</td>
-      <td>{{x.book.code}}</td>
-      <td>{{x.book.page}}</td>
-    
-      <td>{{x.book.year}}</td>
-      
-      <td>{{x.count}}</td>
-      
-      <td>{{x.book.description}}</td>
-      
-      <td>{{x.startdate}}</td>
-      <td>{{x.status}}</td>
-      
-    </tr>
-  </tbody>
+      <tr *ngFor="let x of requests;">
+        <td>{{x.book.name}}</td>
+        <td>{{x.book.author}}</td>
+        <td>{{x.book.code}}</td>
+        <td>{{x.book.page}}</td>
+        <td>{{x.book.year}}</td>
+        <td>{{x.count}}</td>
+        <td>{{x.book.description}}</td>
+        <td>{{x.startdate}}</td>
+        <td>{{x.status}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>

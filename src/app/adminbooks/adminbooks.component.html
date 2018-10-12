@@ -1,80 +1,74 @@
-<div *ngFor="let x of books;" style="width:300px;">
-  <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center"
-        (click)="getBook(x.id)">{{x.name}}
-        <span class="badge badge-primary badge-pill">{{x.count}}</span>
+<div style="float: left; width: 20%; padding-left: 20px; padding-right: 20px">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center" (click)="getBook(x.id)" *ngFor="let x of books;">
+            {{x.name}}
+            <span class="badge badge-primary badge-pill">{{x.count}}</span>
         </li>
-  </ul>
-  
+    </ul>
+    <button type="button" class="btn btn-primary" (click)="OnCreateBook()" style="margin-top:25px;">New Book</button>
 </div>
-
-<button type="button" class="btn btn-primary" (click)="OnCreateBook()" style="margin-top:25px;">Create book</button>
-<div *ngIf="!createBook" style="float:right;right:450px;width:550px;position: absolute;top:50px">
-    <table class="table">  
+<div *ngIf="!createBook" style="float: left; width: 40%; padding-right: 20px">
+    <table class="table">
         <tr>
-          <th>Name</th>
-          <td>{{book.name}}</td>
+            <th style="width: 30%">Name</th>
+            <td>{{book.name}}</td>
         <tr>
         <tr>
-          <th>Page</th>
-          <td>{{book.page}}</td>
-            
+            <th>Page</th>
+            <td>{{book.page}}</td>
         <tr>
-           
         <tr>
-          <th>Author</th>
-          <td>{{book.author}}</td>
+            <th>Author</th>
+            <td>{{book.author}}</td>
         <tr>
-           
         <tr>
-          <th>Code</th>
-          <td>{{book.code}}</td>
-        <tr>              
+            <th>Code</th>
+            <td>{{book.code}}</td>
         <tr>
-          <th>year</th>
-          <td>{{book.year}}</td>
+        <tr>
+            <th>year</th>
+            <td>{{book.year}}</td>
         </tr>
         <tr>
-          <th>description</th>
-          <td>{{book.description}}</td>
-        </tr>  
+            <th>description</th>
+            <td>{{book.description}}</td>
+        </tr>
         <tr>
-          <th>count</th>
-          <td>{{book.count}}</td>
+            <th>count</th>
+            <td>{{book.count}}</td>
         </tr>
     </table>
 </div>
-<div *ngIf="createBook" style="float:right;right:450px;width:550px;position: absolute;top:50px">
-  
-  <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-          <input type="text" class="form-control" id="bookName" name="name" placeholder="Book name" [(ngModel)]="cbook.name">
-      </div>
-      
-      <div class="form-group">
-          <input type="number" class="form-control" id="page" name="page" placeholder="Page" [(ngModel)]="cbook.page">
-      </div>
-      
-      <div class="form-group">
-          <input type="text" class="form-control" id="author" name="author" placeholder="Author" [(ngModel)]="cbook.author">
-      </div>
-      
-      <div class="form-group">
-          <input type="text" class="form-control" id="code"  name="code" placeholder="Code" [(ngModel)]="cbook.code">
-      </div>
-      
-      <div class="form-group">
-          <input type="text" class="form-control" id="year"  name="year" placeholder="Year" [(ngModel)]="cbook.year">
-      </div>
-      
-      <div class="form-group">
-          <textarea class="form-control" rows="5" id="description"  name="description" placeholder="Description" [(ngModel)]="cbook.description"></textarea>
-      </div>
-      
-      <div class="form-group">
-          <input type="number" class="form-control" id="count"  name="count" placeholder="Count" [(ngModel)]="cbook.count">
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-  </form>
-  
+<div *ngIf="createBook" style="float: left; width: 40%; padding-right: 20px">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" class="form-control" id="bookName" name="name" placeholder="Book name" [(ngModel)]="cbook.name">
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control" id="page" name="page" placeholder="Page" [(ngModel)]="cbook.page">
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="author" name="author" placeholder="Author" [(ngModel)]="cbook.author">
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="code" name="code" placeholder="Code" [(ngModel)]="cbook.code">
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" id="year" name="year" placeholder="Year" [(ngModel)]="cbook.year">
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="description" name="description" placeholder="Description"
+                [(ngModel)]="cbook.description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="number" class="form-control" id="count" name="count" placeholder="Count" [(ngModel)]="cbook.count">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
 </div>
