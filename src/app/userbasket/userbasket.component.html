@@ -8,8 +8,9 @@
         <th scope="col" style="width: 5%">Page</th>
         <th scope="col" style="width: 5%">Year</th>
         <th scope="col" style="width: 5%">Count</th>
-        <th scope="col" style="width: 30%">Description</th>
-        <th scope="col" style="width: 5%">Order date</th>
+        <th scope="col" style="width: 10%">Description</th>
+        <th scope="col" style="width: 10%">Order Date</th>
+        <th scope="col" style="width: 10%">Return Date</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -22,7 +23,8 @@
         <td>{{x.book.year}}</td>
         <td>{{x.count}}</td>
         <td>{{x.book.description}}</td>
-        <td>{{x.startdate}}</td>
+        <td>{{x.startDate | date: 'medium'}}</td>
+        <td>{{x.returnDate | date: 'medium'}}</td>
         <td>{{x.status}}</td>
       </tr>
     </tbody>

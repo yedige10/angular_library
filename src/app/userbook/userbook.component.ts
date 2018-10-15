@@ -15,12 +15,12 @@ export class UserbookComponent implements OnInit {
   books: Book[] = [];
   public username: string;
   public id: number;
-  minus:boolean=false;
-  
+  minus: boolean = false;
+
   gbook: boolean = false;
   requests: Requests = new Requests();
   user: User = new User();
-  ordering:boolean=false;
+  ordering: boolean = false;
   constructor(private route: ActivatedRoute, private userService: UserService) {
 
     this.route.queryParams.subscribe(params => {
@@ -40,41 +40,41 @@ export class UserbookComponent implements OnInit {
   }
 
   getBook(id: any) {
-    
+
     this.userService.getBookById(id)
       .subscribe(data => {
         this.book = data;
         this.gbook = true;
-        this.ordering=false;
-        this.minus=false;
+        this.ordering = false;
+        this.minus = false;
         console.log(data);
       });
   }
 
   onCreateRequest() {
-    if(this.requests.count<0){
-      this.minus=true;
-      this.ordering=false;
+    if (this.requests.count < 0) {
+      this.minus = true;
+      this.ordering = false;
     }
-    
-    else if(this.book.count>=this.requests.count){
-    this.requests.userId = this.user.id;
-    this.requests.bookId = this.book.id;
-    this.requests.status = "notapproved";
-    console.log("requests", this.requests);
-    this.userService.createRequest(this.requests)
-      .subscribe(data => {
-        console.log("data", data);
-        this.reloadData();
-      }, error => console.log(error));
-      
-    }
-    else if(this.requests.count==null){
+
+    else if (this.book.count >= this.requests.count) {
+      this.requests.userId = this.user.id;
+      this.requests.bookId = this.book.id;
+      this.requests.status = "notapproved";
+      console.log("requests", this.requests);
+      this.userService.createRequest(this.requests)
+        .subscribe(data => {
+          console.log("data", data);
+          this.reloadData();
+        }, error => console.log(error));
 
     }
-    else{
-      this.ordering=true;
-      this.minus=false;
+    else if (this.requests.count == null) {
+
+    }
+    else {
+      this.ordering = true;
+      this.minus = false;
     }
   }
 }

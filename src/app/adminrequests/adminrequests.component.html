@@ -2,11 +2,11 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col" style="width: 30%">Full name</th>
+        <th scope="col" style="width: 30%">Fullname</th>
         <th scope="col" style="width: 30%">Book Name</th>
         <th scope="col" style="width: 10%">Author</th>
         <th scope="col" style="width: 5%">Count</th>
-        <th scope="col" style="width: 10%">Date of the order</th>
+        <th scope="col" style="width: 10%">Order Date</th>
         <th scope="col" style="width:15%">Status</th>
         <th></th>
       </tr>
@@ -17,7 +17,7 @@
         <td>{{x.book.name}}</td>
         <td>{{x.book.author}}</td>
         <td>{{x.count}}</td>
-        <td>{{x.startdate}}</td>
+        <td>{{x.startDate | date: 'medium'}}</td>
         <td>
           <select class="form-control" id="status" name="status" [(ngModel)]="x.status">
             <option value="notapproved">Not Approved</option>
