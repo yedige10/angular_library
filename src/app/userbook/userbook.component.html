@@ -40,12 +40,12 @@
   <div class="form-group" style="width:100px">
     <input type="number" min=1 class="form-control" name="bookcount" placeholder="count" [(ngModel)]="requests.count">
   </div>
-  <button type="submit" class="btn btn-primary" (click)="onCreateRequest()">Order</button>
+  <button type="submit" [disabled]="!requests.count" class="btn btn-primary" (click)="onCreateRequest()">Order</button>
   
 <div class="alert alert-danger" role="alert" *ngIf="ordering" style="margin-top:10px">
   <h4>You are asking more count than exists in library</h4>
 </div>
 <div class="alert alert-danger" role="alert" *ngIf="minus" style="margin-top:10px">
-  <h4>You are asking minus count</h4>
+  <h4>Please enter the number bigger than 0</h4>
 </div>
 </div>
