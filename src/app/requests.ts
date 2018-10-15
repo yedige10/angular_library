@@ -3,7 +3,7 @@ import {Book} from '../app/book';
 export class Requests{
     id:number;
     count:number;
-    startdate:Date;
+    startdate:string;
     status:string;
     bookId: number;
     book:Book;

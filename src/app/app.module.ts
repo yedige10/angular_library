@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -15,7 +16,8 @@ import { UserbookComponent } from './userbook/userbook.component';
 import { UserbasketComponent } from './userbasket/userbasket.component';
 import { AdminborrowedComponent } from './adminborrowed/adminborrowed.component';
 import { AdminreturnedComponent } from './adminreturned/adminreturned.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const itemRoutes: Routes = [
   { path: 'books', component: AdminbooksComponent},
@@ -35,6 +37,8 @@ const appRoutes: Routes =[
   { path: 'login', component: LoginComponent},
   { path: 'login/adminpage', component: AdminpageComponent,children:itemRoutes},
   { path: 'registration/adminpage', component: AdminpageComponent,children:itemRoutes},
+  { path: 'registration/userpage', component: UserpageComponent,children:itemUserChild},
+  
   { path: 'login/userpage', component: UserpageComponent,children:itemUserChild},
   
   { path: 'registration/userpage', component: UserpageComponent},
@@ -58,7 +62,8 @@ const appRoutes: Routes =[
     AdminreturnedComponent,
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(appRoutes),FormsModule, HttpClientModule
+    BrowserModule,RouterModule.forRoot(appRoutes),FormsModule, HttpClientModule,BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

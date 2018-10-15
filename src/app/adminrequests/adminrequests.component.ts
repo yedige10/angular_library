@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Requests } from '../requests';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-adminrequests',
@@ -10,10 +11,13 @@ import { Requests } from '../requests';
 export class AdminrequestsComponent implements OnInit {
   requests: Requests[]=[];
   
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.reloadRequests();
+  }
+  showApproved() {
+    this.toastr.success('Successfully approved');
   }
   reloadRequests() {
     this.userService.getallRequests().subscribe(
@@ -29,6 +33,7 @@ onApprove(id:number,requests:Object){
   this.userService.updateRequest(id,requests)
       .subscribe(data => {
         console.log(data);
+        this.showApproved();
         this.reloadRequests();
       }, 
         error => console.log(error));

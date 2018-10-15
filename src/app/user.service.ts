@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
-
 @Injectable({
     providedIn: 'root'
   })
@@ -10,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
   export class UserService {
     private baseUrl = 'http://localhost:8080/library';
     constructor(private http: HttpClient) { }
-      
+    
   createUser(user: Object): Observable<Object>{
     return this.http.post(`${this.baseUrl}` + `/users/createuser`, user);
   }
@@ -43,6 +42,7 @@ import { HttpHeaders } from '@angular/common/http';
   }
   
  updateRequest(id:number,requests:Object): Observable<Object>{
+
   return this.http.put(`${this.baseUrl}/updaterequest/${id}`,requests);
 }  
   getApproves(): Observable<any> {

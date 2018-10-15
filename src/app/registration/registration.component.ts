@@ -26,10 +26,16 @@ export class RegistrationComponent implements OnInit {
 
 
   saveUser() {
+    if(this.user.stafforclient=="staff"){
     this.userService.createUser(this.user)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.router.navigate(["adminpage/books"],{relativeTo:this.route});
-  }
+      .subscribe(data => {console.log(data);this.router.navigate(["adminpage/books"],{relativeTo:this.route})}, error => console.log(error));
+    }
+    else{
+      this.userService.createUser(this.user)
+      .subscribe(data => {console.log(data);this.router.navigate(["userpage/books"],{relativeTo:this.route})}, error => console.log(error));
+    }
+    }
+  
   /*
   saveClient() {
     this.userService.createUserClient(this.user)
