@@ -10,7 +10,7 @@ import { Router, RouterModule, ActivatedRoute, NavigationExtras } from '@angular
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
+  dis:boolean=false;
   user: User = new User();
   submitted = false;
   x: User;
@@ -26,6 +26,7 @@ export class RegistrationComponent implements OnInit {
 
 
   saveUser() {
+    
     if (this.user.stafforclient == "staff") {
       this.userService.createUser(this.user)
         .subscribe(data => { console.log(data); this.router.navigate(["adminpage/books"], { relativeTo: this.route }) }, error => console.log(error));
@@ -44,7 +45,8 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(["registration/userpage/books"], navigationExtras)
         }, error => console.log(error));
     }
-  }
+  
+}
 
   onSubmit() {
     this.saveUser();
